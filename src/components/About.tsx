@@ -13,7 +13,7 @@ export function About() {
             <img
               src="/profile.jpg"
               alt="Sander Floria"
-              className="w-28 h-28 rounded-xl object-cover border border-white/[0.08] mb-6"
+              className="w-36 h-36 rounded-xl object-cover border border-teal-500/20 mb-6"
             />
             <div className="space-y-4 text-gray-300 leading-relaxed">
               <p>

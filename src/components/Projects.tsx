@@ -10,6 +10,7 @@ const featured = [
     highlights: ["Photo verification", "Push notifications", "Cross-platform", "Deployed on Vercel"],
     image: "/proof-preview.png",
     url: "https://proof-rust-three.vercel.app",
+    github: "https://github.com/desanded28/proof",
   },
   {
     title: "Media Pipeline Monitor",
@@ -19,7 +20,8 @@ const featured = [
     stack: ["FastAPI", "SQLite", "SSE", "Pillow", "Jinja2"],
     highlights: ["Live pipeline", "Chaos mode", "Auto-thumbnails", "SSE streaming"],
     image: null,
-    url: "http://localhost:8000",
+    url: null,
+    github: null,
   },
   {
     title: "Figurya",
@@ -30,6 +32,7 @@ const featured = [
     highlights: ["Vibe-based search", "Price comparison", "15 stores integrated"],
     image: "/figurya-preview.png",
     url: "https://figuryaa.onrender.com",
+    github: "https://github.com/desanded28/figurya",
   },
 ];
 
@@ -42,6 +45,7 @@ const projects = [
     stack: ["FastAPI", "ChromaDB", "Sentence Transformers", "Ollama", "React"],
     highlights: ["Semantic search", "Source citations", "Fully local"],
     url: null,
+    github: null,
   },
   {
     title: "IoT Dashboard",
@@ -51,6 +55,7 @@ const projects = [
     stack: ["FastAPI", "WebSocket", "React", "Recharts", "TypeScript"],
     highlights: ["Live streaming", "Alert system", "8 sensor types"],
     url: null,
+    github: null,
   },
   {
     title: "Cloud Microservices",
@@ -60,6 +65,7 @@ const projects = [
     stack: ["FastAPI", "Docker", "JWT", "SQLite", "React"],
     highlights: ["API Gateway", "JWT auth", "Docker Compose"],
     url: null,
+    github: null,
   },
   {
     title: "ContractTracker",
@@ -69,6 +75,7 @@ const projects = [
     stack: ["Next.js", "Supabase", "pdfjs-dist", "Tailwind CSS"],
     highlights: ["PDF parsing", "Metadata extraction", "i18n"],
     url: "https://contracttracker-web.vercel.app",
+    github: "https://github.com/desanded28/contracttracker-web",
   },
 ];
 
@@ -127,16 +134,31 @@ export function Projects() {
                       </span>
                     ))}
                   </div>
-                  {project.url && (
-                    <a
-                      href={project.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="bg-teal-600 hover:bg-teal-500 text-white text-sm px-5 py-2.5 rounded-lg transition-colors w-fit"
-                    >
-                      View live &rarr;
-                    </a>
-                  )}
+                  <div className="flex items-center gap-3">
+                    {project.url && (
+                      <a
+                        href={project.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="bg-teal-600 hover:bg-teal-500 text-white text-sm px-5 py-2.5 rounded-lg transition-colors"
+                      >
+                        View live &rarr;
+                      </a>
+                    )}
+                    {project.github && (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 text-gray-400 hover:text-white text-sm px-4 py-2.5 border border-white/[0.1] hover:border-white/[0.2] rounded-lg transition-colors"
+                      >
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+                        </svg>
+                        Source
+                      </a>
+                    )}
+                  </div>
                 </div>
                 {project.image && (
                   <div className="bg-white/[0.02] border-t md:border-t-0 md:border-l border-white/[0.06] flex items-center justify-center p-6 md:p-8 min-h-[240px]">
@@ -154,66 +176,71 @@ export function Projects() {
 
         {/* Other projects grid */}
         <div className="grid md:grid-cols-2 gap-4 stagger-children">
-          {projects.map((project) => {
-            const Card = (
-              <div
-                className={`bg-white/[0.04] border border-white/[0.08] rounded-xl p-6 flex flex-col group hover:border-white/[0.14] transition-colors ${project.url ? "cursor-pointer" : ""}`}
-              >
-                <div className="mb-3">
-                  <div className="flex items-center justify-between">
-                    <h3 className="text-white font-medium text-lg">
-                      {project.title}
-                    </h3>
+          {projects.map((project) => (
+            <div
+              key={project.title}
+              className="bg-white/[0.04] border border-white/[0.08] rounded-xl p-6 flex flex-col hover:border-white/[0.14] transition-colors"
+            >
+              <div className="mb-3">
+                <h3 className="text-white font-medium text-lg">
+                  {project.title}
+                </h3>
+                <p className="text-gray-500 text-sm">{project.tagline}</p>
+              </div>
+              <p className="text-gray-400 text-sm leading-relaxed mb-4 flex-1">
+                {project.description}
+              </p>
+              <div className="space-y-3">
+                <div className="flex flex-wrap gap-1.5">
+                  {project.stack.map((tech) => (
+                    <span
+                      key={tech}
+                      className="text-xs text-gray-400 bg-white/[0.06] px-2 py-0.5 rounded"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+                <div className="flex flex-wrap gap-1.5">
+                  {project.highlights.map((h) => (
+                    <span
+                      key={h}
+                      className="text-xs text-teal-400 bg-teal-500/[0.08] px-2 py-0.5 rounded"
+                    >
+                      {h}
+                    </span>
+                  ))}
+                </div>
+                {(project.url || project.github) && (
+                  <div className="flex items-center gap-3 pt-2">
                     {project.url && (
-                      <span className="text-teal-400 text-xs opacity-0 group-hover:opacity-100 transition-opacity">
-                        Visit &rarr;
-                      </span>
+                      <a
+                        href={project.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-teal-400 hover:text-teal-300 text-xs transition-colors"
+                      >
+                        View live &rarr;
+                      </a>
+                    )}
+                    {project.github && (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-1.5 text-gray-400 hover:text-white text-xs transition-colors"
+                      >
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+                        </svg>
+                        Source
+                      </a>
                     )}
                   </div>
-                  <p className="text-gray-500 text-sm">{project.tagline}</p>
-                </div>
-                <p className="text-gray-400 text-sm leading-relaxed mb-4 flex-1">
-                  {project.description}
-                </p>
-                <div className="space-y-3">
-                  <div className="flex flex-wrap gap-1.5">
-                    {project.stack.map((tech) => (
-                      <span
-                        key={tech}
-                        className="text-xs text-gray-400 bg-white/[0.06] px-2 py-0.5 rounded"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                  <div className="flex flex-wrap gap-1.5">
-                    {project.highlights.map((h) => (
-                      <span
-                        key={h}
-                        className="text-xs text-teal-400 bg-teal-500/[0.08] px-2 py-0.5 rounded"
-                      >
-                        {h}
-                      </span>
-                    ))}
-                  </div>
-                </div>
+                )}
               </div>
-            );
-
-            return project.url ? (
-              <a
-                key={project.title}
-                href={project.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="no-underline"
-              >
-                {Card}
-              </a>
-            ) : (
-              <div key={project.title}>{Card}</div>
-            );
-          })}
+            </div>
+          ))}
         </div>
       </div>
     </section>

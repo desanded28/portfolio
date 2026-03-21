@@ -11,12 +11,6 @@ const experiences = [
     description:
       "Taught programming fundamentals — Python, Java, Scratch, and basic web development — to dozens of younger learners through small-group workshops. Improved learners' confidence while building strong communication and mentoring abilities.",
   },
-  {
-    title: "Maker Faires & Tech Events",
-    role: "Participant",
-    description:
-      "Attended Maker Faires and tech community events to explore emerging technologies. Participated in hands-on workshops like MakerLabs, building awareness of industry trends and ability to evaluate new tools and platforms.",
-  },
 ];
 
 export function Experience() {
