@@ -13,14 +13,14 @@ const featured = [
     github: "https://github.com/desanded28/proof",
   },
   {
-    title: "Media Pipeline Monitor",
-    tagline: "Real-time media workflow dashboard",
+    title: "Studio Floria",
+    tagline: "AI receptionist for a Tuscan dental practice",
     description:
-      "Simulates a media processing pipeline with live asset ingestion, transcoding, tagging, and publishing stages. Features real-time SSE streaming, chaos mode for failure testing, and auto-generated thumbnails. Built for a Red Bull Media House interview.",
-    stack: ["FastAPI", "SQLite", "SSE", "Pillow", "Jinja2"],
-    highlights: ["Live pipeline", "Chaos mode", "Auto-thumbnails", "SSE streaming"],
+      "Bilingual (Italian/English) chatbot and voice assistant handling appointment booking for a real dental practice with two locations and four doctors. Routes requests to the correct doctor's Google Calendar based on service and day, sends email notifications to staff, and is live on floria.it via an embedded widget.",
+    stack: ["Flask", "Gemini", "Firestore", "Google Calendar API", "Vapi"],
+    highlights: ["Live on floria.it", "Multi-doctor routing", "Voice + chat", "IT/EN bilingual"],
     image: null,
-    url: null,
+    url: "https://floria.it",
     github: null,
   },
   {
