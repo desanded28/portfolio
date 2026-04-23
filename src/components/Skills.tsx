@@ -1,50 +1,100 @@
-const skillGroups = [
+import { SectionHeader } from "./SectionHeader";
+
+const groups = [
   {
     title: "Languages",
-    items: ["Java", "C", "C++", "C#", "Python", "TypeScript", "JavaScript", "SQL"],
+    items: [
+      "Java",
+      "C",
+      "C++",
+      "C#",
+      "Python",
+      "TypeScript",
+      "JavaScript",
+      "SQL",
+    ],
   },
   {
     title: "Frontend",
-    items: ["React", "Next.js", "React Native", "Tailwind CSS", "GSAP", "Framer Motion", "Recharts"],
+    items: [
+      "React",
+      "Next.js",
+      "React Native",
+      "Tailwind CSS",
+      "GSAP",
+      "Framer Motion",
+      "Recharts",
+    ],
   },
   {
     title: "Backend & Data",
-    items: ["FastAPI", "Spring Boot", "Node.js", "Prisma", "PostgreSQL", "SQLite", "ChromaDB", "Supabase"],
+    items: [
+      "FastAPI",
+      "Spring Boot",
+      "Node.js",
+      "Prisma",
+      "PostgreSQL",
+      "SQLite",
+      "ChromaDB",
+      "Supabase",
+    ],
   },
   {
     title: "Tools & Infra",
-    items: ["Git", "Docker", "Linux", "WebSocket", "JWT", "REST APIs", "Expo"],
+    items: [
+      "Git",
+      "Docker",
+      "Linux",
+      "WebSocket",
+      "JWT",
+      "REST APIs",
+      "Expo",
+      "Playwright",
+    ],
   },
   {
     title: "Concepts",
-    items: ["Data Structures", "Algorithms", "OOP", "Microservices", "ECS Architecture", "RAG / Embeddings", "Memory Management"],
+    items: [
+      "Data Structures",
+      "Algorithms",
+      "OOP",
+      "Microservices",
+      "RAG / Embeddings",
+      "Agent Tool-Calling",
+      "Memory Management",
+    ],
   },
 ];
 
 export function Skills() {
   return (
-    <section id="skills" className="py-24 px-6">
-      <div className="max-w-6xl mx-auto">
-        <div className="fade-up">
-          <h2 className="text-3xl font-semibold text-white mb-2">Skills</h2>
-          <div className="w-12 h-0.5 bg-teal-500 mb-12" />
-        </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 stagger-children">
-          {skillGroups.map((group) => (
+    <section
+      id="skills"
+      className="py-24 md:py-32 px-6 md:px-10 scroll-mt-20"
+    >
+      <div className="max-w-7xl mx-auto">
+        <SectionHeader index="04" title="Skills" subtitle="— Index" />
+
+        <div className="mt-20 md:mt-24 grid gap-y-10">
+          {groups.map((g, i) => (
             <div
-              key={group.title}
-              className="bg-white/[0.04] border border-white/[0.08] rounded-xl p-6"
+              key={g.title}
+              className="reveal grid md:grid-cols-12 gap-x-6 gap-y-4 items-start border-t border-[var(--color-rule-strong)] pt-7 md:pt-8"
+              data-delay={i % 4}
             >
-              <h3 className="text-white font-medium mb-4 text-sm uppercase tracking-wider">
-                {group.title}
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {group.items.map((item) => (
-                  <span
-                    key={item}
-                    className="text-sm text-gray-300 bg-white/[0.06] px-3 py-1.5 rounded-lg"
-                  >
+              <div className="md:col-span-3 flex items-baseline gap-3 font-mono text-[10px] tracking-[0.22em] uppercase text-[var(--color-ink-dim)]">
+                <span className="text-[var(--color-accent)]">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <span>{g.title}</span>
+              </div>
+              <div className="md:col-span-9 font-serif text-xl md:text-[26px] leading-[1.45] text-[var(--color-ink)]">
+                {g.items.map((item, j) => (
+                  <span key={item}>
                     {item}
+                    {j < g.items.length - 1 && (
+                      <span className="text-[var(--color-ink-faint)]"> · </span>
+                    )}
                   </span>
                 ))}
               </div>

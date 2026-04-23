@@ -1,73 +1,116 @@
 /* eslint-disable @next/next/no-img-element */
+import { SectionHeader } from "./SectionHeader";
 
 export function About() {
   return (
-    <section id="about" className="py-24 px-6">
-      <div className="max-w-6xl mx-auto">
-        <div className="fade-up">
-          <h2 className="text-3xl font-semibold text-white mb-2">About me</h2>
-          <div className="w-12 h-0.5 bg-teal-500 mb-8" />
-        </div>
-        <div className="grid md:grid-cols-2 gap-12">
-          <div className="slide-left">
-            <img
-              src="/profile.jpg"
-              alt="Sander Floria"
-              className="w-36 h-36 rounded-xl object-cover border border-teal-500/20 mb-6"
-            />
-            <div className="space-y-4 text-gray-300 leading-relaxed">
-              <p>
-                I&apos;m a second-year Computer Science student at Edinburgh
-                Napier University, originally from Italy. I speak English, Italian,
-                some Turkish, and I&apos;m currently picking up German.
-              </p>
-              <p>
-                My work spans full-stack web development, mobile apps, and
-                backend systems. I&apos;ve built a social accountability app with
-                a React Native mobile client, a figurine search engine that
-                aggregates 15 stores, and an experiment that ran on the
-                International Space Station.
-              </p>
-              <p>
-                I learn best by building. Most of my projects go well beyond course
-                requirements — I build them because I want to understand how things
-                actually work under the hood.
-              </p>
+    <section
+      id="about"
+      className="py-24 md:py-32 px-6 md:px-10 scroll-mt-20"
+    >
+      <div className="max-w-7xl mx-auto">
+        <SectionHeader index="01" title="About" subtitle="— Bio" />
+
+        <div className="grid md:grid-cols-12 gap-10 md:gap-14 mt-20 md:mt-24">
+          {/* Photo column */}
+          <figure className="md:col-span-4 reveal">
+            <div className="aspect-[3/4] overflow-hidden bg-[var(--color-bg-soft)] border border-[var(--color-rule)]">
+              <img
+                src="/profile.jpg"
+                alt="Sander Floria"
+                className="w-full h-full object-cover grayscale contrast-[1.05]"
+              />
             </div>
-          </div>
-          <div className="space-y-6 slide-right">
-            <div className="bg-white/[0.04] border border-white/[0.08] rounded-xl p-6">
-              <h3 className="text-white font-medium mb-3">Education</h3>
-              <div className="space-y-3">
-                <div>
-                  <div className="text-sm text-teal-400">2024 — 2028</div>
-                  <div className="text-white">BSc (Hons) Computer Science</div>
-                  <div className="text-gray-400 text-sm">Edinburgh Napier University</div>
-                </div>
-                <div className="border-t border-white/[0.06] pt-3">
-                  <div className="text-sm text-teal-400">2022 — 2024</div>
-                  <div className="text-white">International Baccalaureate Diploma</div>
-                  <div className="text-gray-400 text-sm">ISF &middot; HL Maths, Physics, Italian</div>
-                </div>
+            <figcaption className="mt-4 font-mono text-[10px] tracking-[0.18em] uppercase text-[var(--color-ink-dim)] flex justify-between">
+              <span>Edinburgh</span>
+              <span>04 / 2026</span>
+            </figcaption>
+          </figure>
+
+          {/* Bio column */}
+          <div className="md:col-span-8 md:pt-4">
+            <div className="reveal max-w-[62ch]">
+              <p className="font-serif text-2xl md:text-[30px] leading-[1.4] mb-8 text-[var(--color-ink)]">
+                <em className="text-[var(--color-accent)]">I&apos;m Sander.</em>{" "}
+                Born in Tuscany, finished high school at the International
+                School of Florence, and now reading Computer Science at
+                Edinburgh Napier.
+              </p>
+
+              <div className="space-y-5 text-[var(--color-ink-dim)] leading-[1.75] text-[15px]">
+                <p>
+                  My work covers full-stack web and mobile, backend systems,
+                  and applied ML — often blurring between them. The pattern
+                  I&apos;ve noticed about myself: I learn best by building
+                  things that have to handle real inputs, not toy problems.
+                </p>
+                <p>
+                  I&apos;ve shipped a Python experiment that ran on the
+                  International Space Station, a bilingual AI receptionist
+                  that books appointments in my dad&apos;s dental practice
+                  back in Tuscany, and an anime figurine search engine that
+                  crawls fifteen Japanese stores in parallel.
+                </p>
+                <p className="text-[var(--color-ink)]">
+                  Most of my code lives outside the curriculum — on GitHub,
+                  in production for real people, or running in low Earth orbit.
+                </p>
               </div>
             </div>
-            <div className="bg-white/[0.04] border border-white/[0.08] rounded-xl p-6">
-              <h3 className="text-white font-medium mb-3">Languages</h3>
-              <div className="flex flex-wrap gap-2">
-                {[
-                  { lang: "English", level: "Fluent" },
-                  { lang: "Italian", level: "Fluent" },
-                  { lang: "Turkish", level: "Basic" },
-                  { lang: "German", level: "Learning" },
-                ].map(({ lang, level }) => (
-                  <div
-                    key={lang}
-                    className="text-sm bg-white/[0.06] px-3 py-1.5 rounded-md"
-                  >
-                    <span className="text-gray-200">{lang}</span>
-                    <span className="text-gray-500 ml-1.5">{level}</span>
+
+            <div className="grid sm:grid-cols-2 gap-10 md:gap-14 mt-14 md:mt-16">
+              {/* Languages */}
+              <div className="reveal" data-delay="1">
+                <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-[var(--color-ink-dim)] mb-5 flex items-center gap-3">
+                  <span className="w-6 h-px bg-[var(--color-rule-strong)]" />
+                  Languages
+                </div>
+                <ul className="space-y-3 font-serif text-lg">
+                  {[
+                    { lang: "English", level: "fluent" },
+                    { lang: "Italian", level: "mother tongue" },
+                    { lang: "Turkish", level: "basic" },
+                    { lang: "German", level: "learning" },
+                  ].map(({ lang, level }) => (
+                    <li key={lang} className="flex items-baseline justify-between gap-3 border-b border-[var(--color-rule)] pb-3">
+                      <span className="text-[var(--color-ink)]">{lang}</span>
+                      <span className="font-mono text-[10px] tracking-[0.14em] uppercase text-[var(--color-ink-faint)]">
+                        {level}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Education */}
+              <div className="reveal" data-delay="2">
+                <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-[var(--color-ink-dim)] mb-5 flex items-center gap-3">
+                  <span className="w-6 h-px bg-[var(--color-rule-strong)]" />
+                  Education
+                </div>
+                <div className="space-y-5">
+                  <div>
+                    <div className="font-serif text-lg text-[var(--color-ink)]">
+                      BSc (Hons) Computer Science
+                    </div>
+                    <div className="font-serif italic text-[var(--color-ink-dim)] text-sm mt-0.5">
+                      Edinburgh Napier University
+                    </div>
+                    <div className="font-mono text-[10px] tracking-[0.14em] uppercase text-[var(--color-ink-faint)] mt-1">
+                      2024 — 2028
+                    </div>
                   </div>
-                ))}
+                  <div className="pt-4 border-t border-[var(--color-rule)]">
+                    <div className="font-serif text-lg text-[var(--color-ink)]">
+                      International Baccalaureate
+                    </div>
+                    <div className="font-serif italic text-[var(--color-ink-dim)] text-sm mt-0.5">
+                      International School of Florence
+                    </div>
+                    <div className="font-mono text-[10px] tracking-[0.14em] uppercase text-[var(--color-ink-faint)] mt-1">
+                      2022 — 2024 · HL Maths · Physics · Italian
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

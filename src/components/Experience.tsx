@@ -1,43 +1,61 @@
+import { SectionHeader } from "./SectionHeader";
+
 const experiences = [
   {
     title: "AstroPi Mission Space Lab",
     role: "Developer",
     description:
-      "Developed and deployed a Python-based experiment that was executed on the International Space Station. The analysed results received positive praise for clarity and depth. Built skills in collaborative research, testing under extreme technical constraints, and data interpretation.",
+      "Designed and deployed a Python experiment that was executed on the International Space Station. The analysis received positive praise for its clarity and depth from the AstroPi reviewers. Built skills in collaborative research, testing under extreme technical constraints (no network, capped memory, fixed runtime), and data interpretation.",
+    context: "European Space Agency & Raspberry Pi Foundation",
   },
   {
     title: "CoderDojo",
-    role: "Participant & Mentor",
+    role: "Participant → Mentor",
     description:
-      "Taught programming fundamentals — Python, Java, Scratch, and basic web development — to dozens of younger learners through small-group workshops. Improved learners' confidence while building strong communication and mentoring abilities.",
+      "Taught programming fundamentals — Python, Java, Scratch, and basic web development — to dozens of younger learners through small-group workshops. Progressed from participant to mentor over several years. Sharpened communication skills explaining systems thinking to kids who'd never seen code before.",
+    context: "Volunteer, ongoing",
   },
 ];
 
 export function Experience() {
   return (
-    <section id="experience" className="py-24 px-6">
-      <div className="max-w-6xl mx-auto">
-        <div className="fade-up">
-          <h2 className="text-3xl font-semibold text-white mb-2">Experience</h2>
-          <div className="w-12 h-0.5 bg-teal-500 mb-12" />
-        </div>
-        <div className="space-y-0 stagger-children">
+    <section
+      id="experience"
+      className="py-24 md:py-32 px-6 md:px-10 scroll-mt-20"
+    >
+      <div className="max-w-7xl mx-auto">
+        <SectionHeader index="05" title="Experience" subtitle="— Timeline" />
+
+        <div className="mt-20 md:mt-28 space-y-20 md:space-y-28">
           {experiences.map((exp, i) => (
-            <div key={exp.title} className="flex gap-6 group">
-              <div className="flex flex-col items-center shrink-0">
-                <div className="w-3 h-3 rounded-full bg-teal-500 border-2 border-[#0f1118] mt-1.5" />
-                {i < experiences.length - 1 && (
-                  <div className="w-px flex-1 bg-white/[0.08]" />
-                )}
+            <article
+              key={exp.title}
+              className="reveal grid md:grid-cols-12 gap-6 md:gap-8"
+              data-delay={i + 1}
+            >
+              <div className="md:col-span-3 font-mono text-[10px] md:text-[11px] tracking-[0.22em] uppercase text-[var(--color-ink-dim)] space-y-1">
+                <div className="text-[var(--color-accent)]">
+                  E / {String(i + 1).padStart(2, "0")}
+                </div>
+                <div className="text-[var(--color-ink-faint)] hidden md:block">
+                  {exp.context}
+                </div>
               </div>
-              <div className="pb-12">
-                <h3 className="text-white font-medium text-lg">{exp.title}</h3>
-                <div className="text-teal-400 text-sm mb-2">{exp.role}</div>
-                <p className="text-gray-400 text-sm leading-relaxed max-w-xl">
+              <div className="md:col-span-9 max-w-[62ch]">
+                <h3 className="font-serif italic text-3xl md:text-4xl lg:text-5xl leading-[1.05] mb-3 text-[var(--color-ink)]">
+                  {exp.title}
+                </h3>
+                <div className="font-mono text-[11px] tracking-[0.16em] uppercase text-[var(--color-accent)] mb-7">
+                  {exp.role}
+                </div>
+                <p className="text-[var(--color-ink-dim)] leading-[1.75] text-[15px]">
                   {exp.description}
                 </p>
+                <div className="md:hidden mt-4 font-mono text-[10px] tracking-[0.18em] uppercase text-[var(--color-ink-faint)]">
+                  {exp.context}
+                </div>
               </div>
-            </div>
+            </article>
           ))}
         </div>
       </div>
